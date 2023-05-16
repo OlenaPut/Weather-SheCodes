@@ -52,6 +52,7 @@ function toFahrenheit(event) {
 }
 
 let tempUnitF = document.querySelector("#tempUnitF");
+
 tempUnitF.addEventListener("click", toFahrenheit);
 
 //Define current data
@@ -89,6 +90,7 @@ function showCurrentTemp(response) {
   let feelsLike = Math.round(response.data.main.feels_like);
   let feelsLikeData = document.querySelector("#feelsLike");
   feelsLikeData.innerHTML = feelsLike;
+  document.querySelector("#citySearch").value = "";
 }
 
 let form = document.querySelector("form");
