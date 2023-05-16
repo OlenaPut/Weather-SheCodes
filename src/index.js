@@ -90,7 +90,6 @@ function showCurrentTemp(response) {
   let feelsLike = Math.round(response.data.main.feels_like);
   let feelsLikeData = document.querySelector("#feelsLike");
   feelsLikeData.innerHTML = feelsLike;
-  document.querySelector("#citySearch").value = "";
 }
 
 let form = document.querySelector("form");

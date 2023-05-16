@@ -22,11 +22,8 @@ body {
   margin-top: 30px;
   margin-left: 38px;
 }
-.current-date {
-  line-height: 10px;
-}
+
 .currentCity {
-  margin-top: 30px;
   margin-left: 38px;
 }
 .detailedWeather {
@@ -34,19 +31,21 @@ body {
   margin-left: 40px;
 }
 h1 {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .tempUnitC {
   font-size: 12px;
-
   position: relative;
-  top: -14px;
+  top: -12px;
+  text-decoration: none;
 }
 .tempUnitF {
   font-size: 12px;
-
   position: relative;
   top: -14px;
+}
+a {
+  text-decoration: none;
 }
 .tempUnitStrike {
   font-size: 12px;
@@ -54,11 +53,11 @@ h1 {
   top: -14px;
 }
 .currentCityTemp {
-  margin-left: 20px;
+  margin-left: 8px;
 }
 .currentDate {
   font-size: 12px;
-  margin-left: 20px;
+  margin-left: 8px;
 }
 .sun {
   width: relative;
