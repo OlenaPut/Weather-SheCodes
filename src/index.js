@@ -46,14 +46,20 @@ function toFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector(".currentCityTemp");
 
-  let temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+  temperatureElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+}
+function toCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".currentCityTemp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+let celsiusTemperature = null;
 let tempUnitF = document.querySelector("#tempUnitF");
-
 tempUnitF.addEventListener("click", toFahrenheit);
+
+let tempUnitC = document.querySelector("#tempUnitC");
+tempUnitC.addEventListener("click", toCelsius);
 
 //Define current data
 function search(city) {
@@ -75,7 +81,9 @@ function showCurrentTemp(response) {
   document.querySelector(".currentCity").innerHTML = response.data.name;
   console.log(response.data.name);
 
-  let cityTemperature = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+  let cityTemperature = Math.round(celsiusTemperature);
+
   let cityTemperatureData = document.querySelector(".currentCityTemp");
   cityTemperatureData.innerHTML = cityTemperature;
 
