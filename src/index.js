@@ -120,8 +120,8 @@ function showCurrentTemp(response) {
     "11n": "thunder.gif",
     "13d": "snow.gif",
     "13n": "snow.gif",
-    "13d": "mist.gif",
-    "13n": "mist.gif",
+    "50d": "mist.gif",
+    "50n": "mist.gif",
   };
   let weatherIcon = response.data.weather[0].icon;
   let iconFileName = iconMappings[weatherIcon];
