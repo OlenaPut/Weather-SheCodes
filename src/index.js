@@ -102,6 +102,14 @@ function showCurrentTemp(response) {
   let feelsLike = Math.round(response.data.main.feels_like);
   let feelsLikeData = document.querySelector("#feelsLike");
   feelsLikeData.innerHTML = feelsLike;
+
+  //let iconElement = response.data.main.humidity;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
   tempUnitF.classList.remove("active");
   tempUnitC.classList.add("active");
   document.querySelector("#citySearch").value = "";
