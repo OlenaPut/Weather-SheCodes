@@ -103,7 +103,6 @@ function showCurrentTemp(response) {
   let feelsLikeData = document.querySelector("#feelsLike");
   feelsLikeData.innerHTML = feelsLike;
 
-  //let iconElement = response.data.main.humidity;
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
