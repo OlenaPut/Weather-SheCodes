@@ -70,3 +70,7 @@ a {
 .gitHub {
   text-decoration: none;
 }
+h1 .active {
+  color: rgb(61, 61, 61);
+  cursor: default;
+}

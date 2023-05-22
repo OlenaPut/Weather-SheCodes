@@ -44,12 +44,16 @@ currentDate.innerHTML = formatDate(now);
 //C-F
 function toFahrenheit(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector(".currentCityTemp");
 
+  tempUnitC.classList.remove("active");
+  tempUnitF.classList.add("active");
+  let temperatureElement = document.querySelector(".currentCityTemp");
   temperatureElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
 }
 function toCelsius(event) {
   event.preventDefault();
+  tempUnitF.classList.remove("active");
+  tempUnitC.classList.add("active");
   let temperatureElement = document.querySelector(".currentCityTemp");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
@@ -98,6 +102,8 @@ function showCurrentTemp(response) {
   let feelsLike = Math.round(response.data.main.feels_like);
   let feelsLikeData = document.querySelector("#feelsLike");
   feelsLikeData.innerHTML = feelsLike;
+  tempUnitF.classList.remove("active");
+  tempUnitC.classList.add("active");
   document.querySelector("#citySearch").value = "";
 }
 
