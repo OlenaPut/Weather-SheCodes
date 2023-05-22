@@ -103,11 +103,30 @@ function showCurrentTemp(response) {
   let feelsLikeData = document.querySelector("#feelsLike");
   feelsLikeData.innerHTML = feelsLike;
 
+  let iconMappings = {
+    "01d": "sun.gif",
+    "01n": "moon.gif",
+    "02d": "sun_cloud.gif",
+    "02n": "moon_cloud.gif",
+    "03d": "cloud.gif",
+    "03n": "cloud.gif",
+    "04d": "broken_clouds.gif",
+    "04n": "broken_clouds.gif",
+    "09d": "rain2.gif",
+    "09n": "rain2.gif",
+    "10d": "sun_rain.gif",
+    "10n": "moon_rain.gif",
+    "11d": "thunder.gif",
+    "11n": "thunder.gif",
+    "13d": "snow.gif",
+    "13n": "snow.gif",
+    "13d": "mist.gif",
+    "13n": "mist.gif",
+  };
+  let weatherIcon = response.data.weather[0].icon;
+  let iconFileName = iconMappings[weatherIcon];
   let iconElement = document.querySelector("#icon");
-  iconElement.setAttribute(
-    "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
+  iconElement.setAttribute("src", `media/${iconFileName}`);
 
   tempUnitF.classList.remove("active");
   tempUnitC.classList.add("active");
