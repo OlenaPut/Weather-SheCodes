@@ -64,8 +64,8 @@ a {
   margin-top: 30px;
   margin-left: 20px;
 }
-.icon {
-  margin: 3px;
+.main-icon {
+  margin: 0;
 }
 .gitHub {
   text-decoration: none;
