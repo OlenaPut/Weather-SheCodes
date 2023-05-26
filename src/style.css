@@ -59,17 +59,17 @@ a {
   font-size: 12px;
   margin-left: 8px;
 }
-.sun {
-  width: relative;
-  margin-top: 30px;
-  margin-left: 20px;
-}
+
 .main-icon {
-  margin: 0;
+  margin-top: 30px;
+  width: relative;
+
+  margin-left: 20px;
 }
 .weather-forecast {
   text-align: center;
   margin-left: 30px;
+  margin-right: 30px;
 }
 .weather-forecast-date {
   font-size: 16px;
@@ -79,7 +79,7 @@ a {
 }
 .forecast-min-temperature {
   font-size: 14px;
-  color: #707070;
+  color: #7b7b7b;
 }
 .gitHub {
   text-decoration: none;

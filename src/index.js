@@ -80,6 +80,31 @@ function handleSubmit(event) {
   let city = document.querySelector("#citySearch").value;
   search(city);
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Sat", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+      <div class="weather-forecast-date">
+        ${day}
+        <br />
+        <img class="iqon" src="media/rain2.gif" alt="sun" width="50px" />
+        <p>
+          <span class="forecast-max-temperature">+19</span>
+          <span class="forecast-min-temperature">+10</span>
+        </p>
+      </div>
+    </div>
+  
+  `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function showCurrentTemp(response) {
   document.querySelector(".currentCity").innerHTML = response.data.name;
@@ -145,7 +170,7 @@ function retrievePosition(position) {
 
   axios.get(apiUrl).then(showCurrentTemp);
 }
-
+displayForecast();
 function currentTemperature() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
