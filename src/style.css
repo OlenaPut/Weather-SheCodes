@@ -67,6 +67,20 @@ a {
 .main-icon {
   margin: 0;
 }
+.weather-forecast {
+  text-align: center;
+  margin-left: 30px;
+}
+.weather-forecast-date {
+  font-size: 16px;
+}
+.forecast-max-temperature {
+  font-size: 14px;
+}
+.forecast-min-temperature {
+  font-size: 14px;
+  color: #707070;
+}
 .gitHub {
   text-decoration: none;
 }
