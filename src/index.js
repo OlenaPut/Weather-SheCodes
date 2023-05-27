@@ -84,12 +84,12 @@ function displayForecast(response) {
   console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
       `
-      <div class="col-3">
+      <div class="col-2">
       <div class="weather-forecast-date">
         ${day}
         <br />
@@ -108,9 +108,10 @@ function displayForecast(response) {
 }
 function getForecast(coordinates) {
   console.log(coordinates);
-  let units = "metric";
-  let apiKey = "ed238469f9b5e9d801834270e65449bc";
-  let apiUrl = `api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}`;
+  // let units = "metric";
+  //let apiKey = "ed238469f9b5e9d801834270e65449bc";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&key=3f9b7b600353afo31342ctbc603950e8&units=metric.`;
+  //  `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&&units=metric&appid=${apiKey}`;
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
