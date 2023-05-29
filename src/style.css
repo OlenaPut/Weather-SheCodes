@@ -7,7 +7,7 @@ body {
   margin-top: 20px;
 }
 .searchForm {
-  margin-left: -64px;
+  margin-left: -10px;
 }
 .currentCityButton {
   padding: 5px 15px;
@@ -17,10 +17,6 @@ body {
 }
 .currentCityButtonlocation {
   text-align: right;
-}
-.searchCity {
-  margin-top: 30px;
-  margin-left: 38px;
 }
 
 .currentCity {
@@ -61,10 +57,10 @@ a {
 }
 
 .main-icon {
-  margin-top: 30px;
-  width: relative;
-
-  margin-left: 20px;
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .weather-forecast {
   text-align: center;
