@@ -90,9 +90,33 @@ function displayForecast(response) {
   console.log(response.data);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
+
   let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
+    let iconMappings = {
+      "clear-sky-day": "sun.gif",
+      "clear-sky-night": "moon.gif",
+      "few-clouds-day": "sun_cloud.gif",
+      "few-clouds-night": "moon_cloud.gif",
+      "scattered-clouds-day": "cloud.gif",
+      "scattered-clouds-night": "cloud.gif",
+      "broken-clouds-day": "broken_clouds.gif",
+      "broken-clouds-night": "broken_clouds.gif",
+      "shower-rain-day": "rain2.gif",
+      "shower-rain-night": "rain2.gif",
+      "rain-day": "sun_rain.gif",
+      "rain-night": "moon_rain.gif",
+      "thunderstorm-day": "thunder.gif",
+      "thunderstorm-night": "thunder.gif",
+      "snow-day": "snow.gif",
+      "snow-night": "snow.gif",
+      "mist-day": "mist.gif",
+      "mist-night": "mist.gif",
+    };
+    let weatherIcon = forecastDay.condition.icon;
+    let iconFileName = iconMappings[weatherIcon];
+
     if (index < 6) {
       forecastHTML =
         forecastHTML +
@@ -102,9 +126,7 @@ function displayForecast(response) {
         ${formatDay(forecastDay.time)}
         <br />
         
-        <img class="iqon" src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
-          forecastDay.condition.icon
-        }.png" alt="sun" width="50px" />
+        <img class="iqon" src="media/${iconFileName}"  width="40px" />
         <p>
           <span class="forecast-max-temperature">${Math.round(
             forecastDay.temperature.maximum
@@ -123,11 +145,7 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 function getForecast(coordinates) {
-  console.log(coordinates);
-  // let units = "metric";
-  //let apiKey = "ed238469f9b5e9d801834270e65449bc";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&key=3f9b7b600353afo31342ctbc603950e8&units=metric`;
-  //  `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&&units=metric&appid=${apiKey}`;
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
