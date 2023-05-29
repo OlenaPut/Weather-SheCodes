@@ -1,4 +1,3 @@
-//Date
 let now = new Date();
 function formatDate(date) {
   let days = [
@@ -41,38 +40,12 @@ function formatDate(date) {
 let currentDate = document.querySelector(".currentDate");
 currentDate.innerHTML = formatDate(now);
 
-//C-F
-function toFahrenheit(event) {
-  event.preventDefault();
-
-  tempUnitC.classList.remove("active");
-  tempUnitF.classList.add("active");
-  let temperatureElement = document.querySelector(".currentCityTemp");
-  temperatureElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
-}
-function toCelsius(event) {
-  event.preventDefault();
-  tempUnitF.classList.remove("active");
-  tempUnitC.classList.add("active");
-  let temperatureElement = document.querySelector(".currentCityTemp");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-let tempUnitF = document.querySelector("#tempUnitF");
-tempUnitF.addEventListener("click", toFahrenheit);
-
-let tempUnitC = document.querySelector("#tempUnitC");
-tempUnitC.addEventListener("click", toCelsius);
-
-//Define current data
 function search(city) {
   let apiKey = "6bfa54f242cbb59343d4e58db578dc61";
   let units = "metric";
   let urlCity = city;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${urlCity}&&units=${units}&appid=${apiKey}`;
   axios.get(apiUrl).then(showCurrentTemp);
-  console.log(apiUrl);
 }
 
 function handleSubmit(event) {
@@ -151,7 +124,6 @@ function getForecast(coordinates) {
 }
 function showCurrentTemp(response) {
   document.querySelector(".currentCity").innerHTML = response.data.name;
-  console.log(response.data.name);
 
   celsiusTemperature = response.data.main.temp;
   let cityTemperature = Math.round(celsiusTemperature);
@@ -196,8 +168,6 @@ function showCurrentTemp(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src", `media/${iconFileName}`);
 
-  tempUnitF.classList.remove("active");
-  tempUnitC.classList.add("active");
   document.querySelector("#citySearch").value = "";
 
   getForecast(response.data.coord);
